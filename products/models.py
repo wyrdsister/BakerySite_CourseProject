@@ -17,9 +17,6 @@ class Product(models.Model):
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
 
-    def __str__(self):
-        return "Продукт %s", self.name
-
 class Review(models.Model):
     message = models.TextField(max_length=4000)
     product = models.ForeignKey(Product, related_name='product_review', on_delete=models.CASCADE)
