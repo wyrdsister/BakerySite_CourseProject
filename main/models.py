@@ -1,8 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class Category(models.Model):
     name = models.CharField(max_length=30, unique=True)
+    image = models.ImageField(upload_to = 'static/media/category_img/')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
 

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="section-list">
+        <h1>{{ category.name }}</h1>
+        <div class="row">
+            {% for product in product_list %}
+                {% include 'landing/product_item.html' %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

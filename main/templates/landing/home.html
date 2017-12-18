@@ -1,4 +1,31 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
-    <h3>123</h3>
+    <div class="slider">
+        {% include 'landing/slides.html' %}
+    </div>
+
+    {#     <div class="section-top">#}
+    {#      <img src="{% static 'media/1.gif' %}" class="img-responsive">#}
+    {# </div>#}
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                {# дальше идет окошко с категориями! НЕ ЛОМАЙТЕ ЕГО, ОНО БУДЕТ ПЛАКАТЬ! #}
+                {% for category in categories %}
+                    <div class="col-lg-3">
+                        <div class="category-item">
+                            <a href="{% url 'category' category.id %}">
+                                <div>
+                                    <img src="{{ category.image }}" class="img-responsive">
+                                </div>
+                                <h4>{{ category.name }}</h4></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

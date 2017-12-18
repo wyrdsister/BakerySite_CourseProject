@@ -1,0 +1,27 @@
+{% load static %}
+
+<!-- Custom styles -->
+<link rel="stylesheet" href="{% static 'product.css' %}">
+
+<div class="col-lg-4">
+    <div class="product-item">
+        <div>
+            <a href="{% url 'product' product.id %}">
+                <img src="{{ product.image_small }}" class="img-responsive">
+            </a>
+        </div>
+
+        <h4>{{ product.name }}</h4>
+        <p>
+            {{ product.description|truncatechars_html:70 }}
+        </p>
+        <div>
+            {{ product.price }} рублей
+        </div>
+        <div class="add-to-card-btn">
+            <button class="btn btn-success">
+                Добавить в корзину
+            </button>
+        </div>
+    </div>
+</div>
