@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+ <html>
+<head>
+    <title>slider</title>
+    <link rel="stylesheet" href="{% static 'slides.css' %}">
+</head>
+ <body>
+    <div class="all">
+        <input type="radio" name="respond" id="desktop">
+        <article id="slider">
+            <input checked type="radio" name="slider" id="swich1">
+            <input type="radio" name="slider" id="swich2">
+            <input type="radio" name="slider" id="swich3">
+
+            <div id="slides">
+                <div id="owerflow">
+                    <div class="image">
+                        <article><img src="{% static 'media/1.gif' %}"></article>
+                        <article><img src="{% static 'media/2.gif' %}"></article>
+                        <article><img src="{% static 'media/1.gif' %}"></article>
+                    </div>
+                </div>
+            </div>
+            <div id="controls">
+                <label for="switch1"></label>
+                <label for="switch2"></label>
+                <label for="switch3"></label>
+            </div>
+            <div id="active">
+                <label for="switch1"></label>
+                <label for="switch2"></label>
+                <label for="switch3"></label>
+            </div>
+        </article>
+    </div>
+ </body>
+</html>
