@@ -13,7 +13,7 @@
     float: left;
 }
 
-#slides .image{/*общий размер блока с озображениями*/
+#slides .image{/*общий размер блока с изображениями*/
     width: 500%;
     line-height: 100px;
 }
@@ -76,7 +76,7 @@ label, a {
 #controls {/*положение блока всех управляющих элементов */
     margin: -25% 0 0 0;
     width: 100%;
-    height: 50px;
+    height: 100px;
 }
 
 #active label {/*стиль отдельного переключателя*/
