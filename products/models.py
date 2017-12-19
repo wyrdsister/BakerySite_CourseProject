@@ -11,8 +11,8 @@ class Product(models.Model):
     amount = models.PositiveIntegerField(help_text="вес продукта")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='static/media/product_img/')
-    image_small = models.ImageField(upload_to='static/media/product_img/', null=True)
+    image = models.ImageField(upload_to='product_img/')
+    image_small = models.ImageField(upload_to='product_img_small/', null=True)
 
     class Meta:
         ordering = ['name', 'price']
@@ -21,17 +21,3 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-
-class Review(models.Model):
-    message = models.TextField(max_length=4000)
-    product = models.ForeignKey(Product, related_name='product_review', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, related_name='user_review', on_delete=models.CASCADE)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        verbose_name = "Комментарий"
-        verbose_name_plural = "Комментарии"
-
-    def __str__(self):
-        return "Комментарий %s", self.message

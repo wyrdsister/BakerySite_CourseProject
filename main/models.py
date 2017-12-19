@@ -1,10 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.urls import reverse
+
 
 class Category(models.Model):
     name = models.CharField(max_length=30, unique=True)
-    image = models.ImageField(upload_to = 'static/media/category_img/')
+    image = models.ImageField(upload_to='category_img/')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
 
@@ -29,4 +29,16 @@ class News(models.Model):
     def __str__(self):
         return self.title
 
+class Review(models.Model):
+    message = models.TextField(max_length=4000)
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    rating = models.PositiveIntegerField(),
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = "Комментарий"
+        verbose_name_plural = "Комментарии"
+
+    def __str__(self):
+        return "Комментарий"

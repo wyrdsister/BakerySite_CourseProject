@@ -1,20 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{%  block title %}Главная{% endblock %}
 
 {% block content %}
     <div class="sess">
         {% include 'landing/slides.html' %}
     </div>
-
-    {#     <div class="section-top">#}
-    {#      <img src="{% static 'media/1.gif' %}" class="img-responsive">#}
-    {# </div>#}
-
+    {# вкладка с категориями продуктов #}
     <div class="section">
         <div class="container">
             <div class="row">
-                {# дальше идет окошко с категориями! НЕ ЛОМАЙТЕ ЕГО, ОНО БУДЕТ ПЛАКАТЬ! #}
+
                 {% for category in categories %}
                     <div class="col-lg-3">
                         <div class="category-item">
@@ -27,6 +24,17 @@
                     </div>
                 {% endfor %}
             </div>
+        </div>
+    </div>
+    {# вкладка с постами #}
+    <div class="section-reviews">
+    <h1>Отзывы о нас</h1>
+    <p>"Бейкери-стрит" делает все, чтобы стать еще лучше для наших клиентов.
+        Мы будем благодарны, если Вы выскажете свое мнение о нашем сервисе, пожелания и предложения в этом разделе.</p>
+        <div class="row">
+            {% for review in reviews %}
+                {% include 'landing/reviews.html' %}
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

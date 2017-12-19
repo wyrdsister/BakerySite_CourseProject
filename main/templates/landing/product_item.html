@@ -1,19 +1,20 @@
 {% load static %}
 
 <!-- Custom styles -->
+<link rel="stylesheet" href="{% static 'style.css' %}">
 <link rel="stylesheet" href="{% static 'product.css' %}">
 
 <div class="col-lg-4">
     <div class="product-item">
         <div>
+            <img src="{{ MEDIA_URL }}{{ product.image_small }}" class="img-responsive">
             <a href="{% url 'product' product.id %}">
-                <img src="{{ product.image_small }}" class="img-responsive">
+
+                <h4>{{ product.name }}</h4>
             </a>
         </div>
-
-        <h4>{{ product.name }}</h4>
         <p>
-            {{ product.description|truncatechars_html:70 }}
+            {{ product.description|truncatechars_html:100 }}
         </p>
         <div>
             {{ product.price }} рублей
