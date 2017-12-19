@@ -1,28 +1,22 @@
-
 .title{
+    background-color: #fffabf;
     text-align: center;
-    color: darkcyan;
+    color: red;
     font-weight: 100;
     line-height: 50px;
 }
-
 .section{
-    margin: 20px;
-}
-
-.slider {
-    height: 500px;
-    margin: 20px;
+    margin: 25px;
 }
 
 .category-item{
     text-align: center;
-    height: 240px;
+    height: 290px;
     background-color: white;
     position: relative;
     margin-bottom: 10px;
     padding: 5px;
-    border: 1px solid lightblue;
+    border: 1px solid lightgray;
 }
 
 .img-responsive{
@@ -34,4 +28,7 @@
 .section-list {
     margin: 20px;
     text-align: center;
+}
+.navbar{
+    margin-bottom: 100px;
 }
