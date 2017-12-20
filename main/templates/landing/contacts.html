@@ -2,9 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <style>
+         .leftimg {
+    float:left; /* Выравнивание по левому краю */
+
+   }
+    #onas{
+
+            color: #071528;
+            font-size: 25px;
+        text-align: center;
+        }
+         #onas1{
+
+            color: #5be5e4;
+            font-size: 40px;
+        text-align: center;
+        }
+#map{
+    float: left;
+    text-indent: 20px;
+}
+  </style>
 </head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}О нас{% endblock %}
+
+{% block content %}
+    <p id="onas1">Наши контакты</p>
+    <div id="map">
+    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ac62b8a3054056897422d92233a7ef223d5156f9744fd3049de73892005d746de&amp;source=constructor" width="900" height="500" frameborder="0"></iframe>
+    </div>
+        <p  id="onas">
+            <br>
+            <br>
+            г. Санкт-Петербург,
+ <br>ул. Профессора Попова, 2
+<br>
+ <br>ПН - ЧТ: 8:00–21:00
+            <br>ПТ - СБ: 8:00–22:00
+ <br>ВС: 8:00–21:00
+
+<br>
+ <br>+7 (812) 604-26-31
+<br>
+ <br>Пишите нам:
+ <br>По вопросам контроля качества: quality@bakerystreet.ru
+ <br>Для отзывов и предложений: feedback@bakerystreet.ru
+ </p>
+    <br>
+    <br>
+<br>
+<br>
+<br>
+<br>
+    <br>
+<br>
+<br>
+<br>
+{% endblock %}
 
 </body>
 </html>

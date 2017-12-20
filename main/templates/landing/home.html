@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{%  block title %}Главная{% endblock %}
+{% block title %}Главная{% endblock %}
 
 {% block content %}
     <div class="sess">
@@ -17,7 +17,7 @@
                         <div class="category-item">
                             <a href="{% url 'category' category.id %}">
                                 <div>
-                                    <img src="{{ category.image }}" class="img-responsive">
+                                    <img src="{{ category.image.url }}" class="img-responsive">
                                 </div>
                                 <h4>{{ category.name }}</h4></a>
                         </div>
@@ -27,14 +27,91 @@
         </div>
     </div>
     {# вкладка с постами #}
+    <style>
+        #slova {
+            font-weight: bold;
+            color: #54cdcc;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        #otziv {
+            font-weight: bold;
+            color: #071528;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .container1 {
+            color: #54cdcc;
+            font-size: 18px;
+            text-align: left;
+            text-indent: 20px
+        }
+
+        .card-body {
+            position: static;
+            border: dashed 1px #071528; /* Параметры рамки */
+            background: #fffff5; /* Цвет фона */
+            padding: 20px; /* Поля вокруг текста */
+            margin: auto;
+            width: 800px;
+        }
+
+        .col-3 {
+            color: rgba(7, 21, 40, 0.49);
+        }
+
+        .col-6 {
+            text-indent: 20px
+        }
+
+        #but {
+            width: 800px;
+            margin: auto;
+        }
+    </style>
     <div class="section-reviews">
-    <h1>Отзывы о нас</h1>
-    <p>"Бейкери-стрит" делает все, чтобы стать еще лучше для наших клиентов.
-        Мы будем благодарны, если Вы выскажете свое мнение о нашем сервисе, пожелания и предложения в этом разделе.</p>
-        <div class="row">
+        <p id="otziv">Отзывы о нас</p>
+        <p id="slova">"Бейкери-стрит" делает все, чтобы стать еще лучше для наших клиентов.
+            Мы будем благодарны, если Вы выскажете свое мнение о нашем сервисе, пожелания и предложения в этом
+            разделе.</p>
+        <div class="container1">
+            {# Дальше идут отзывы. Нужно сверстать их, рамочку добавить #}
             {% for review in reviews %}
-                {% include 'landing/reviews.html' %}
+                <div class="card-body p-12">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="{% static 'media/user.png' %}"
+                                 class="w-100"> <strong class="text-muted">{{ review.ownuser.username }}</strong>
+                            <small class="text-right">{{ review.created|date:"Y-m-d G:i:s" }}</small>
+                        </div>
+                        <div class="col-6 text-left">
+                            <strong class="col-6 text-left">
+                                {{ review.message }}
+                            </strong>
+                            <br>
+                        </div>
+                        <div class="col-3">
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
             {% endfor %}
+            <div id="but">
+                {% if user.is_authenticated %}
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        {% include 'landing/../form.html' %}
+                        <button type="submit" class="btn btn-success">Отправить</button>
+                    </form>
+                {% endif %}
+            </div>
+
         </div>
     </div>
 {% endblock %}

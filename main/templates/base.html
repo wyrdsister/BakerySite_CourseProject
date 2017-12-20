@@ -11,6 +11,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400" rel="stylesheet">
 
+    {% block stylesheet %}{% endblock %}
+
     <!-- Custom styles -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
 
@@ -19,19 +21,22 @@
 <body>
 
     <div class="wrapper">
-    {% include 'navbar.html' %}
+        {% include 'navbar.html' %}
 
         {% block content %}
-                <h1>123</h1>
+            <h1></h1>
         {% endblock %}
 
         {% include 'footer.html' %}
     </div>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
 
 
 </body>
