@@ -1,10 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block title %} Новости {% endblock %}
+
+{% block content %}
+
+    <div class="section-list">
+        <div class="row">
+            {% for new in news %}
+                <section>
+                    <div class="container">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="card-block">
+                                        <div class="col-md-9">
+                                            <h4 class="card-title text-left">{{ new.title }}</h4>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <small class="card-subtitle mb-2 text-right">{{ new.created|date:"Y-m-d G:i:s" }}</small>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p class="card-text text-justify">{{ new.text }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card-img-bottom">
+                                        <img class="img-responsive" src="{{ new.image_news.url }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

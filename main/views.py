@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.http import HttpResponseRedirect
-from .models import Category, Review
+from .models import Category, Review, News
 from django.contrib.auth import logout
 from products.models import Product
 from .forms import NewReviewForm, SignUpForm
@@ -18,7 +18,6 @@ def home(request):
         form = NewReviewForm()
     reviews = Review.objects.all()
     return render(request, 'landing/home.html', {'categories': categories,
-                                                 'cat': categories,
                                                  'reviews': reviews,
                                                  'form': form})
 
@@ -38,19 +37,20 @@ def category(request, category_id):
 
 
 def about(request):
-    return render(request, 'landing/About.html', {'cat': Category.objects.all()})
+    return render(request, 'landing/About.html', {'categories': Category.objects.all()})
 
 
 def contacts(request):
-    return render(request, 'landing/contacts.html', {'cat': Category.objects.all()})
+    return render(request, 'landing/contacts.html', {'categories': Category.objects.all()})
 
 
 def news(request):
-    return render(request, 'landing/news.html', {'cat': Category.objects.all()})
+    return render(request, 'landing/news.html', {'categories': Category.objects.all(),
+                                                 'news': News.objects.all()})
 
 
 def signin(request):
-    return render(request, 'registration/signin.html', {'cat': Category.objects.all()})
+    return render(request, 'registration/signin.html', {'categories': Category.objects.all()})
 
 
 def signup(request):
@@ -62,7 +62,7 @@ def signup(request):
             return redirect('home')
     else:
         form = SignUpForm()
-    return render(request, 'registration/signup.html', {'cat': Category.objects.all(), 'form': form})
+    return render(request, 'registration/signup.html', {'categories': Category.objects.all(), 'form': form})
 
 
 @login_required

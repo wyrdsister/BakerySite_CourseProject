@@ -12,28 +12,25 @@
 
             </div>
             <div class="col-lg-6">
-                <h1 class="text-center">
-                    {{ product.name }}
-                </h1>
-                <div class="">
-                    <h4>
-                        Цена: {{ product.price }} рублей
-                        Вес: {{ product.weight }} грамм
-                    </h4>
-                </div>
-                <div>
-                    <div class="row">
-                        {{ product.description }}
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">{{ product.name }}</h3>
+                        <p class="card-text">{{ product.description }}</p>
                     </div>
-
-                    <div class="form_buying_product" class="form-inline">
-                        <button type="submit" id="submit_btn" class="btn btn-success btn-buy">
-                               <input type="number" class="form-control">
-                            Купить
-                        </button>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{ product.price }} рублей</li>
+                        <li class="list-group-item">{{ product.weight }} грамм</li>
+                    </ul>
+                    <div class="card-body">
+                        <form class="form-inline">
+                            {% include 'form.html' %}
+                            <div class="form-group mx-sm-3">
+                                <label for="inputPassword2" class="sr-only">Количество</label>
+                                <input type="number" class="form-control" id="CountProductId" placeholder="Количество">
+                            </div>
+                            <button type="submit" class="btn btn-success">Купить</button>
+                        </form>
                     </div>
-
-
                 </div>
             </div>
         </div>
