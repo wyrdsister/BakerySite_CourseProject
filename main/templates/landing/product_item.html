@@ -3,7 +3,24 @@
 <!-- Custom styles -->
 <link rel="stylesheet" href="{% static 'style.css' %}">
 <link rel="stylesheet" href="{% static 'product.css' %}">
-
+    <style>
+    .btn
+    {
+    background: #2ecde2;
+    border: 1px solid #2ecde2;
+    }
+    .btn:hover{
+         border: 1px solid #13a3d0;
+        background: #13a3d0;
+    }
+{% comment %}    .col-lg-4:hover{
+         background: rgba(50, 227, 248, 0.37);
+    }{% endcomment %}
+    .col-lg-4{
+            position: relative;
+    height: 100%;
+     padding-bottom: 100px;}
+</style>
 <div class="col-lg-4">
     <div class="product-item">
         <div>
@@ -20,7 +37,7 @@
             {{ product.price }} рублей
         </div>
         <div class="add-to-card-btn">
-            <button class="btn btn-success">
+            <button class="btn btn-success" >
                 Добавить в корзину
             </button>
         </div>

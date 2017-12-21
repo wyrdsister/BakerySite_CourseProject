@@ -6,7 +6,23 @@
 {% block content %}
 
     {% include 'landing/slider.html' %}
+    <style>
+    .list-group-item
+    {
+        position: relative;
+    background: #2ecde2;
+    margin: 0 auto;
+    border: 1px solid #2ecde2;
+    }
+    .list-group-item:hover{
+         border: 1px solid #13a3d0;
+        background: #13a3d0;
+    }
+    .col-lg-3:hover{
+         background: rgba(50, 227, 248, 0.37);
+    }
 
+</style>
     <h3 class="text-center"> Ассортимент </h3>
     {# вкладка с категориями продуктов #}
     <div class="section">
@@ -16,14 +32,15 @@
                     <div class="col-lg-3">
 
                         <div class="card">
+                            <br>
                             <img class="card-img-top" src="{{ category.image.url }}" class="img-responsive">
                             <div class="card-block">
                                 <h4 class="card-title text-center">{{ category.name }}</h4>
 
                             </div>
-                            <ul class="list-group list-group-flush">
+                            <ul class="list-group list-group-flush" >
                                 <li class="list-group-item text-center">
-                                    <a href="{% url 'category' category.id %}">Подробнее</a></li>
+                                    <a href="{% url 'category' category.id %}"style="color: white">Подробнее</a></li>
                             </ul>
                         </div>
 
@@ -67,7 +84,18 @@
                 </div><!-- /col-sm-5 -->
             {% endfor %}
         </div><!-- /row -->
-
+<style>
+    .btn-success{
+            position: relative;
+    background: #2ecde2;
+    margin: 0 auto;
+    border: 1px solid #2ecde2;
+    }
+    .btn-success:hover{
+         border: 1px solid #13a3d0;
+        background: #13a3d0;
+    }
+</style>
         {% if user.is_authenticated %}
             <form method="post" novalidate>
                 {% csrf_token %}

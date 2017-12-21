@@ -4,14 +4,6 @@ html, body {
     margin: 0;
 }
 
-.title {
-    background-color: #fffabf;
-    text-align: center;
-    color: red;
-    font-weight: 100;
-    line-height: 50px;
-}
-
 .section {
     margin-right: 20px;
     margin-left: 20px;
@@ -24,25 +16,29 @@ html, body {
     position: relative;
     margin-bottom: 10px;
     padding: 5px;
-    border: 1px solid #071528;
+
 }
 
 .img-responsive {
     display: block;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+
 }
 
 .section-list {
     text-align: center;
+
 }
 
 .thumbnail {
     padding: 0;
+
 }
 
 .panel {
     position: relative;
+
 }
 
 .panel > .panel-heading:after, .panel > .panel-heading:before {
@@ -61,32 +57,34 @@ html, body {
 
 .panel > .panel-heading:after {
     border-width: 7px;
-    border-right-color: #f7f7f7;
+    border-right-color: #2ecde2;
     margin-top: 1px;
     margin-left: 2px;
 }
 
 .panel > .panel-heading:before {
-    border-right-color: #ddd;
+    border-right-color: #2ecde2;
     border-width: 8px;
 }
 
 .navbar {
     width: 100%;
-    margin-bottom: 20px;
+
 }
 
 .bd-footer {
-    position: absolute;
     padding: 4rem 0;
     margin-top: 4rem;
-    font-size: 85%;
+    font-size: 20%;
     text-align: left;
-    background-color: #f7f7f7;
+    background-color: #2ecde2;
+    flex: 0 0 auto;
 }
 
 .text-muted {
-    color: #636c72;
+    color: #071528;
+    font-size: 14px;
+
 }
 
 .bd-footer-links {
@@ -97,18 +95,17 @@ html, body {
 .card-img-bottom {
     color: #fff;
     height: 400px;
-    background-size: cover;
 }
 
 footer {
-    color: #fff; /* Цвет текста */
     width: 100%; /* Ширина слоя */
-    background: #54cdcc;
     margin: 0 auto;
+    font-size: 20px;
+
 }
 
 footer #rights {
-    background: #54cdcc;
+    background: #ffffff;
     float: left;
     width: 100%;
     text-align: center;
@@ -120,9 +117,8 @@ footer > section {
 }
 
 footer > section > h6 {
-    color: white;
+    color: #ffffff;
     font-size: 20px;
-    font-weight: bold;
     text-indent: 20px;
 }
 
