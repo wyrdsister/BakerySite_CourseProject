@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from products.models import Product
 
+
 class Status(models.Model):
     name = models.CharField(max_length=15, default="отменен")
     created = models.DateTimeField(auto_now_add=True)
@@ -13,6 +14,7 @@ class Status(models.Model):
 
     def __str__(self):
         return "Статус %s", self.name
+
 
 class Order(models.Model):
     customer_name = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_order")
@@ -29,6 +31,7 @@ class Order(models.Model):
     def __str__(self):
         return "Заказ %s", self.customer_name
 
+
 class ProductInOrder(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="order")
     product = models.ForeignKey(Product, on_delete=models.DO_NOTHING, related_name="product_order")
@@ -43,3 +46,4 @@ class ProductInOrder(models.Model):
 
     def __str__(self):
         return "Продукт %s в заказе %s", self.product, self.order
+

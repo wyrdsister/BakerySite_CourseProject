@@ -18,6 +18,7 @@ from django.conf.urls import url, include
 from django.conf import settings
 from django.conf.urls.static import static
 from main import views
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -26,9 +27,9 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     url(r'^contacts/$', views.contacts, name='contacts'),
     url(r'^news/$', views.news, name='news'),
-    url(r'^logout/$',views.logout_page, name='logout'),
+    url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
     url(r'^signup/$', views.signup, name='signup'),
-    url(r'^signin/$', views.signin, name='signin'),
+    url(r'^signin/$',  auth_views.LoginView.as_view(template_name='registration/signin.html'), name='signin'),
     url(r'^category/', include("main.urls")),
     url(r'^order/', include("orders.urls")),
     url(r'^product/', include("products.urls")),

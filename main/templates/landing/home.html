@@ -4,114 +4,83 @@
 {% block title %}Главная{% endblock %}
 
 {% block content %}
-    <div class="sess">
-        {% include 'landing/slides.html' %}
-    </div>
+
+    {% include 'landing/slider.html' %}
+
+    <h3 class="text-center"> Ассортимент </h3>
     {# вкладка с категориями продуктов #}
     <div class="section">
         <div class="container">
             <div class="row">
-
                 {% for category in categories %}
                     <div class="col-lg-3">
-                        <div class="category-item">
-                            <a href="{% url 'category' category.id %}">
-                                <div>
-                                    <img src="{{ category.image.url }}" class="img-responsive">
-                                </div>
-                                <h4>{{ category.name }}</h4></a>
+
+                        <div class="card">
+                            <img class="card-img-top" src="{{ category.image.url }}" class="img-responsive">
+                            <div class="card-block">
+                                <h4 class="card-title text-center">{{ category.name }}</h4>
+
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item text-center">
+                                    <a href="{% url 'category' category.id %}">Подробнее</a></li>
+                            </ul>
                         </div>
+
                     </div>
+
                 {% endfor %}
             </div>
         </div>
     </div>
+
     {# вкладка с постами #}
-    <style>
-        #slova {
-            font-weight: bold;
-            color: #54cdcc;
-            font-size: 18px;
-            text-align: center;
-        }
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="text-center"> Отзывы о нас </h3>
+                <h5 class="text-center">«Бейкери-стрит» делает все, чтобы стать еще лучше для наших клиентов.
+                    Мы будем благодарны, если Вы выскажете свое мнение о нашем сервисе, пожелания и предложения в
+                    этом разделе.</h5>
+            </div><!-- /col-sm-12 -->
+        </div><!-- /row -->
 
-        #otziv {
-            font-weight: bold;
-            color: #071528;
-            font-size: 20px;
-            text-align: center;
-        }
-
-        .container1 {
-            color: #54cdcc;
-            font-size: 18px;
-            text-align: left;
-            text-indent: 20px
-        }
-
-        .card-body {
-            position: static;
-            border: dashed 1px #071528; /* Параметры рамки */
-            background: #fffff5; /* Цвет фона */
-            padding: 20px; /* Поля вокруг текста */
-            margin: auto;
-            width: 800px;
-        }
-
-        .col-3 {
-            color: rgba(7, 21, 40, 0.49);
-        }
-
-        .col-6 {
-            text-indent: 20px
-        }
-
-        #but {
-            width: 800px;
-            margin: auto;
-        }
-    </style>
-    <div class="section-reviews">
-        <p id="otziv">Отзывы о нас</p>
-        <p id="slova">"Бейкери-стрит" делает все, чтобы стать еще лучше для наших клиентов.
-            Мы будем благодарны, если Вы выскажете свое мнение о нашем сервисе, пожелания и предложения в этом
-            разделе.</p>
-        <div class="container1">
-            {# Дальше идут отзывы. Нужно сверстать их, рамочку добавить #}
+        <div class="row ml-1">
             {% for review in reviews %}
-                <div class="card-body p-12">
-                    <div class="row">
-                        <div class="col-3">
-                            <img src="{% static 'media/user.png' %}"
-                                 class="w-100"> <strong class="text-muted">{{ review.ownuser.username }}</strong>
-                            <small class="text-right">{{ review.created|date:"Y-m-d G:i:s" }}</small>
-                        </div>
-                        <div class="col-6 text-left">
-                            <strong class="col-6 text-left">
-                                {{ review.message }}
-                            </strong>
-                            <br>
-                        </div>
-                        <div class="col-3">
-                            <div class="row mb-3">
-                                <div class="col-6">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-            {% endfor %}
-            <div id="but">
-                {% if user.is_authenticated %}
-                    <form method="post" novalidate>
-                        {% csrf_token %}
-                        {% include 'landing/../form.html' %}
-                        <button type="submit" class="btn btn-success">Отправить</button>
-                    </form>
-                {% endif %}
-            </div>
+                <div class="col-sm-1">
+                    <div class="thumbnail">
+                        <img class="img-responsive user-photo"
+                             src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                    </div><!-- /thumbnail -->
+                </div><!-- /col-sm-1 -->
 
-        </div>
-    </div>
+                <div class="col-sm-11">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong>{{ review.ownuser.username }}</strong> <span
+                                class="text-muted">  ({{ review.created|date:"Y-m-d G:i:s" }})</span>
+                        </div>
+                        <div class="panel-body">
+                            {{ review.message }}
+                        </div><!-- /panel-body -->
+                    </div><!-- /panel panel-default -->
+                </div><!-- /col-sm-5 -->
+            {% endfor %}
+        </div><!-- /row -->
+
+        {% if user.is_authenticated %}
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {% include 'landing/../form.html' %}
+                <button type="submit" class="btn btn-success">Отправить</button>
+            </form>
+        {% endif %}
+
+    </div><!-- /container -->
+
+
+
+
+
+
 {% endblock %}

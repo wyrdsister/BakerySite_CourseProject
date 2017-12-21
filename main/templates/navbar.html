@@ -33,7 +33,8 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
-                    <li><a href="/logout/">Привет, {{ user.username }}</a></li>
+                    <li><a>Привет, {{ user.username }}</a></li>
+                    <li><a href="/logout/">Выход</a></li>
                     <li class="active"><a href="/order/"><img src="{% static 'media/cart.png' %}"
                                                               class="img-responsive>"> Корзина<span
                             class="sr-only">(current)</span></a>

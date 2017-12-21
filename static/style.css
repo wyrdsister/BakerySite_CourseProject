@@ -1,3 +1,9 @@
+html, body {
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+}
+
 .title {
     background-color: #fffabf;
     text-align: center;
@@ -7,7 +13,8 @@
 }
 
 .section {
-    margin: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
 .category-item {
@@ -29,12 +36,62 @@
 .section-list {
     text-align: center;
 }
-.section-reviews {
-    margin-bottom: 20px;
+
+.thumbnail {
+    padding: 0;
 }
+
+.panel {
+    position: relative;
+}
+
+.panel > .panel-heading:after, .panel > .panel-heading:before {
+    position: absolute;
+    top: 11px;
+    left: -16px;
+    right: 100%;
+    width: 0;
+    height: 0;
+    display: block;
+    content: " ";
+    border-color: transparent;
+    border-style: solid solid outset;
+    pointer-events: none;
+}
+
+.panel > .panel-heading:after {
+    border-width: 7px;
+    border-right-color: #f7f7f7;
+    margin-top: 1px;
+    margin-left: 2px;
+}
+
+.panel > .panel-heading:before {
+    border-right-color: #ddd;
+    border-width: 8px;
+}
+
 .navbar {
     width: 100%;
     margin-bottom: 20px;
+}
+
+.bd-footer {
+    position: absolute;
+    padding: 4rem 0;
+    margin-top: 4rem;
+    font-size: 85%;
+    text-align: left;
+    background-color: #f7f7f7;
+}
+
+.text-muted {
+    color: #636c72;
+}
+
+.bd-footer-links {
+    padding-left: 0;
+    margin-bottom: 1rem;
 }
 
 footer {

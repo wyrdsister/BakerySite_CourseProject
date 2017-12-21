@@ -1,0 +1,20 @@
+
+.card {
+    margin-left: 30%;
+    margin-right: 30%;
+    float: none;
+    margin-bottom: 5%;
+}
+
+.logo {
+    font-family: 'Helvetica', sans-serif;
+}
+
+.logo a {
+    color: rgba(0, 0, 0, .9);
+}
+
+.logo a:hover,
+.logo a:active {
+    text-decoration: none;
+}
