@@ -3,7 +3,6 @@ from .models import Review
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-
 class NewReviewForm(forms.ModelForm):
     message = forms.CharField(widget=forms.Textarea(
         attrs={'rows': 5, 'placeholder': 'Понравилась наша продукция?'}),

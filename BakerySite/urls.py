@@ -18,6 +18,7 @@ from django.conf.urls import url, include
 from django.conf import settings
 from django.conf.urls.static import static
 from main import views
+from products import views as view
 from django.contrib.auth import views as auth_views
 
 
@@ -31,7 +32,7 @@ urlpatterns = [
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^signin/$',  auth_views.LoginView.as_view(template_name='registration/signin.html'), name='signin'),
     url(r'^category/', include("main.urls")),
-    url(r'^order/', include("orders.urls")),
+    url(r'^cart/', view.get_cart, name="cart"),
     url(r'^product/', include("products.urls")),
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

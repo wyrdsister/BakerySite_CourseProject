@@ -1,5 +1,7 @@
 {% load static %}
+<style>
 
+</style>
 <!-- Static navbar -->
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
@@ -13,7 +15,7 @@
             </button>
             <a class="navbar-brand" href="/">Бейкери-стрит</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <u1 id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/"><img src="{% static 'media/home.png' %}"
                                                     class="img-responsive>"> Домой</a></li>
@@ -35,16 +37,16 @@
                 {% if user.is_authenticated %}
                     <li><a>Привет, {{ user.username }}</a></li>
                     <li><a href="/logout/">Выход</a></li>
-                    <li class="active"><a href="/order/"><img src="{% static 'media/cart.png' %}"
-                                                              class="img-responsive>"> Корзина<span
-                            class="sr-only">(current)</span></a>
+                    <li class="active"> <a href="/cart/"><img src="{% static 'media/cart.png' %}"
+                                                      class="img-responsive>"> Корзина<span class="sr-only"></span></a>
                     </li>
                 {% else %}
                     <li><a href="/signin/">Вход</a></li>
                     <li class="active"><a href="/signup/"><img src="{% static 'media/account.png' %}"
-                                                              class="img-responsive>"> Pегистрация</a></li>
+                                                               class="img-responsive>"> Pегистрация</a></li>
                 {% endif %}
             </ul>
-        </div><!--/.nav-collapse -->
-    </div>
+        </u1>
+    </div><!--/.nav-collapse -->
+
 </nav>

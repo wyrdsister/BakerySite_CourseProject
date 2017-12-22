@@ -25,13 +25,14 @@ def home(request):
 def category(request, category_id):
     category = Category.objects.get(id=category_id)
     product_list = Product.objects.filter(category=category_id)
+
     return render(
         request,
         'landing/category-detail.html',
         {
             'category': category,
             'product_list': product_list,
-            'cat': Category.objects.all(),
+            'categories': Category.objects.all(),
         }
     )
 
@@ -69,3 +70,4 @@ def signup(request):
 def logout_page(request):
     logout(request)
     return HttpResponseRedirect("/")
+

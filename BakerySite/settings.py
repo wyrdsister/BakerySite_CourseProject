@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'main',
-    'orders',
-    'products'
+    'products',
+    'cart'
 ]
 
 MIDDLEWARE = [
@@ -83,10 +83,6 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': 'db'
-    # }
 }
 
 # Password validation

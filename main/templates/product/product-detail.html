@@ -1,27 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
-    <style>
-    .btn
-    {
-    background: #2ecde2;
-    border: 1px solid #2ecde2;
+<style>
+    .btn {
+        background: #2ecde2;
+        border: 1px solid #2ecde2;
     }
-    .btn{
-         border: 1px solid #13a3d0;
+
+    .btn {
+        border: 1px solid #13a3d0;
         background: #13a3d0;
     }
-    </style>
+</style>
 {% block content %}
-        <style>
-    .btn
-    {
-    background: #2ecde2;
-    border: 1px solid #2ecde2;
-    }
-    .btn:hover{
-         border: 1px solid #13a3d0;
-        background: #13a3d0;
-    }
+    <style>
+        .btn {
+            background: #2ecde2;
+            border: 1px solid #2ecde2;
+        }
+
+        .btn:hover {
+            border: 1px solid #13a3d0;
+            background: #13a3d0;
+        }
     </style>
     <div class="container">
         <div class="row">
@@ -42,15 +42,17 @@
                         <li class="list-group-item">{{ product.price }} рублей</li>
                         <li class="list-group-item">{{ product.weight }} грамм</li>
                     </ul>
-                    <div class="card-body">
-                        <form class="form-inline">
-                            {% include 'form.html' %}
-                            <div class="form-group mx-sm-3">
-                                <label for="inputPassword2" class="sr-only">Количество</label>
-                                <input type="number" class="form-control" id="CountProductId" placeholder="Количество">
+                    <div class="card-body form-inline">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="count" name="count" placeholder="Количество" value="1">
+                                <button type="submit" class="btn btn-success">Купить</button>
                             </div>
-                            <button type="submit" class="btn btn-success">Купить</button>
                         </form>
+                        {% if not user.is_authenticated %}
+                            <h5><small>Для офомления заказа, пожалуйста, <a href="/signin/">войдите </a> или <a href="/signup/">зарегистрируйтесь</a></small></h5>
+                        {% endif %}
                     </div>
                 </div>
             </div>

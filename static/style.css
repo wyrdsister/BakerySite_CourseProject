@@ -9,6 +9,20 @@ html, body {
     margin-left: 20px;
 }
 
+.basket-container{
+    position: relative;
+    padding: 15px 10px;
+}
+
+.basket-items{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background-color: #55e093;
+    z-index: 10;
+    padding: 10px;
+}
+
 .category-item {
     text-align: center;
     height: 290px;
